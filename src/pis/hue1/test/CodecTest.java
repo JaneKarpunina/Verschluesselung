@@ -1,19 +1,22 @@
-package pis.hue1;
+package pis.hue1.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import pis.hue1.Caesar;
+import pis.hue1.Codec;
+import pis.hue1.Wuerfel;
 
 /*
 Instruktionen:
 
-1.	Der folgende Testfall muss von ihrem Programm bestanden werden. Sie dürfen den Testfall nicht abändern/anpassen.
+1.	Der folgende Testfall muss von ihrem Programm bestanden werden. Sie dï¿½rfen den Testfall nicht abï¿½ndern/anpassen.
 	Sie muessen das JUnit Framework ggf. in ihr Projekt einbinden.
 2.	Achtung! Dieser Test ist nicht vollstaendig und dient lediglich als Anhaltspunkt einer korrekten Abgabe. 
 	In erster Linie stellt der Test eine korrekte Abgabestruktur sicher.
-3.	Alle Plagiate werden abgelehnt und die Autoren können somit nicht an der PIS Klausur im WS 17/18 Teilnehmen. 
+3.	Alle Plagiate werden abgelehnt und die Autoren kï¿½nnen somit nicht an der PIS Klausur im WS 17/18 Teilnehmen. 
 
-Viel Spaß und Erfolg beim Programmieren ;)
+Viel Spaï¿½ und Erfolg beim Programmieren ;)
 */
 
 public class CodecTest {

@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
 
-</AnchorPane>
+<GridPane fx:id="gridPane" fx:controller="pis.hue1.CodecGUI"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          styleClass="root">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+    <Text id="welcome-text" text="Kodierung"
+          GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+    <TextArea fx:id="klarText" text="Klartext:"
+           GridPane.columnIndex="0" GridPane.rowIndex="1"
+    GridPane.rowSpan="3" GridPane.columnSpan="2"/>
+
+    <Button text = "kodieren" fx:id="kodieren" onAction="#kodieren"
+            GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+    <TextArea fx:id="geheimText" text="Geheimtext:" GridPane.columnIndex="0" GridPane.rowIndex="5"
+            GridPane.rowSpan="3" GridPane.columnSpan="2"/>
+
+    <Button text = "dekodieren" fx:id="decodieren" onAction="#dekodieren"
+            GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+
+    <TextField text="Loesung 1:" fx:id="loesung1"
+           GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+    <TextField text="Loesung 2:" fx:id="loesung2"
+                   GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+
+    <Button text  = "Save" fx:id="saveLoesung1" onAction="#setzeLeosung1"
+               GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+    <Button text = "Save" fx:id="saveLoesung2"  onAction="#setzeLeosung2"
+               GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+    <!--<stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>-->
+
+</GridPane>
