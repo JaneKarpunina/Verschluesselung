@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
-//todo: make styles!!!!there are probably ame libraries with interesting components
+
 public class CodecGUI {
 
     private static final String WUERFEL = "Wuerfel";

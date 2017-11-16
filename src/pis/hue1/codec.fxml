@@ -39,8 +39,4 @@
     <Button text = "Save" fx:id="saveLoesung2"  onAction="#setzeLeosung2"
                GridPane.columnIndex="3" GridPane.rowIndex="2"/>
 
-    <!--<stylesheets>
-        <URL value="@Login.css" />
-    </stylesheets>-->
-
 </GridPane>

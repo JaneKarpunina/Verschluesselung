@@ -20,9 +20,7 @@ public class Main extends Application {
         controller.setCodec1(new Wuerfel());
         controller.setCodec2(new Wuerfel());
         primaryStage.setTitle("Verschluesselung");
-        //TODO: set min size
-        primaryStage.setScene(new Scene(root, 300, 275));
-        //primaryStage.setFullScreen(true);
+        primaryStage.setScene(new Scene(root));
         primaryStage.setMinWidth(500);
         primaryStage.setMinHeight(700);
         primaryStage.show();
