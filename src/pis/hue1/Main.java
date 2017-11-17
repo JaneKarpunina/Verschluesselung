@@ -20,9 +20,11 @@ public class Main extends Application {
         controller.setCodec1(new Wuerfel());
         controller.setCodec2(new Wuerfel());
         primaryStage.setTitle("Verschluesselung");
-        primaryStage.setScene(new Scene(root));
+        Scene scene  = new Scene(root);
+        primaryStage.setScene(scene);
         primaryStage.setMinWidth(500);
         primaryStage.setMinHeight(700);
+        scene.getStylesheets().add("stylesheet.css");
         primaryStage.show();
     }
 

@@ -4,6 +4,7 @@ package pis.hue1;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Wuerfel extends AbstractCodec implements Codec {
 
@@ -122,12 +123,11 @@ public class Wuerfel extends AbstractCodec implements Codec {
 
     @Override
     public void setzeLosung(String schluessel) throws IllegalArgumentException {
-        if (schluessel.contains("[^a-zA-Z]+"))
+        if (!Pattern.compile("[a-zA-Z]*").matcher(schluessel).matches())
             throw new IllegalArgumentException("Schluessel kann nur Buchstaben enthalten");
         this.schluessel = schluessel;
         array = new int[schluessel.length()];
         initializeArray();
     }
-
 
 }

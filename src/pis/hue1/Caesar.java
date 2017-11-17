@@ -1,5 +1,7 @@
 package pis.hue1;
 
+import java.util.regex.Pattern;
+
 public class Caesar extends AbstractCodec implements Codec {
 
     public Caesar() {
@@ -53,8 +55,8 @@ public class Caesar extends AbstractCodec implements Codec {
 
     @Override
     public void setzeLosung(String schluessel) throws IllegalArgumentException {
-        if (schluessel.contains("\\s+"))
-            throw new IllegalArgumentException("Schluessel kann nicht speciale Character enthalten");
+        if (!Pattern.compile("[^\\s]*").matcher(schluessel).matches())
+            throw new IllegalArgumentException("Schluessel kann nicht speziele Character enthalten");
         this.schluessel = schluessel;
     }
 }

@@ -6,6 +6,9 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
+import java.util.concurrent.Callable;
+import java.util.function.Consumer;
+
 
 public class CodecGUI {
 
@@ -51,6 +54,8 @@ public class CodecGUI {
     @FXML
     Button saveLoesung2;
 
+    private ToggleGroup group;
+
 
     void setCodec1(Codec codec1) {
         this.codec1 = codec1;
@@ -63,7 +68,7 @@ public class CodecGUI {
     @FXML
     protected void initialize() {
 
-        ToggleGroup group = new ToggleGroup();
+        group = new ToggleGroup();
 
         RadioButton rb1 = new RadioButton(WUERFEL);
         rb1.setUserData(WUERFEL);
@@ -88,8 +93,7 @@ public class CodecGUI {
                     codec1 = new Caesar();
                     codec2 = new Caesar();
                 }
-                codec1.setzeLosung(this.codec1.gibLosung());
-                codec2.setzeLosung(this.codec2.gibLosung());
+                copiereLoesungsWoerter(codec1, codec2);
                 setCodec1(codec1);
                 setCodec2(codec2);
 
@@ -97,29 +101,55 @@ public class CodecGUI {
         });
     }
 
+    private void copiereLoesungsWoerter(Codec codec1, Codec codec2) {
+        if (this.codec1.gibLosung() == null) setzeLoesung(codec1::setzeLosung, "");
+        else setzeLoesung(codec1::setzeLosung, this.codec1.gibLosung());
+        if (this.codec2.gibLosung() == null) setzeLoesung(codec2::setzeLosung, "");
+        else setzeLoesung(codec2::setzeLosung, this.codec2.gibLosung());
+    }
+
 
     @FXML
     private void kodieren(ActionEvent event) {
-        if (codec1.gibLosung() == null) codec1.setzeLosung("");
-        if (codec2.gibLosung() == null) codec2.setzeLosung("");
+        setEmptyLoesungen();
         geheimText.setText(codec2.kodiere(codec1.kodiere(klarText.getText())));
     }
 
     @FXML
     private void dekodieren(ActionEvent event) {
-        if (codec1.gibLosung() == null) codec1.setzeLosung("");
-        if (codec2.gibLosung() == null) codec2.setzeLosung("");
+        setEmptyLoesungen();
         klarText.setText(codec1.dekodiere(codec2.dekodiere(geheimText.getText())));
     }
 
+    private void setEmptyLoesungen() {
+        if (codec1.gibLosung() == null) codec1.setzeLosung("");
+        if (codec2.gibLosung() == null) codec2.setzeLosung("");
+    }
+
+
     @FXML
     private void setzeLeosung1(ActionEvent event) {
-        codec1.setzeLosung(loesung1.getText());
+        setzeLoesung(codec1::setzeLosung, loesung1.getText());
     }
 
     @FXML
     private void setzeLeosung2(ActionEvent event) {
-        codec2.setzeLosung(loesung2.getText());
+        setzeLoesung(codec2::setzeLosung, loesung2.getText());
+    }
+
+    private void setzeLoesung(Consumer<String> consumer, String text) {
+        try {
+            consumer.accept(text);
+        } catch (IllegalArgumentException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler Dialoge");
+            alert.setHeaderText("Inkorrekte Loesungwort Eingabe fuer "
+                    + group.getSelectedToggle().getUserData().toString() + " Kodierung Verfahren");
+            alert.setContentText(ex.getLocalizedMessage());
+            alert.getDialogPane().getStylesheets().add(
+                    "stylesheet.css");
+            alert.showAndWait();
+        }
     }
 
 }
