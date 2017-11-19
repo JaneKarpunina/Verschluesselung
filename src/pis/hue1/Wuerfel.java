@@ -19,7 +19,7 @@ public class Wuerfel extends AbstractCodec implements Codec {
      * array may have only positive and consecutive integer members
      * the minimal element is always 1
      * the length of the array is equal to the length of the key word
-     * keyword should contain only letters in both cases
+     * keyword could contain only letters in both cases
      */
     private int[] array;
 

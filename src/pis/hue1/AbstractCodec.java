@@ -1,8 +1,8 @@
 package pis.hue1;
 
 /**
- * Abstract class AbstractCodec contains key word,
- * setter and getter for key word
+ * Abstract class AbstractCodec contains keyword,
+ * setter and getter for keyword
  */
 public abstract class AbstractCodec implements Codec {
 

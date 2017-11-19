@@ -4,7 +4,7 @@ package pis.hue1;
 /**
  * Codec Interface is designed to provide a common protocol for objects
  * that are used for coding and decoding Strings.
- * It is written for coding and decoding string only and is using string as a key.
+ * It is written for coding and decoding String only and is using string as a key.
  * If a key is not valid then IllegalArgumentException will be thrown
  */
 public interface Codec {
