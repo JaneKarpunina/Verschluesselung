@@ -34,7 +34,7 @@ public interface Codec {
      * sets key word to be used for coding
      *
      * @param schluessel is a key word
-     * @throws IllegalArgumentException when the key word is not allowed
+     * @throws IllegalArgumentException if the key word is not valid
      */
     void setzeLosung(String schluessel) throws IllegalArgumentException; // bei ungeeignetem Schlüssel!
 }

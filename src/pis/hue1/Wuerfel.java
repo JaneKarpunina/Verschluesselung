@@ -6,11 +6,24 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * Class Wuerfel implements Codec interface and is used for
+ * coding with wuerfel method. Valid keywords consist only from
+ * letters in both upper and lower case and it is irrelevant witch case the
+ * letter in a keyword has.
+ * https://de.wikipedia.org/wiki/%C3%9CBCHI - description of the coding method
+ */
 public class Wuerfel extends AbstractCodec implements Codec {
 
+    /**
+     * array may have only positive and consecutive integer members
+     * the minimal element is always 1
+     * the length of the array is equal to the length of the key word
+     * keyword should contain only letters in both cases
+     */
     private int[] array;
 
-    Wuerfel(){
+    Wuerfel() {
     }
 
     public Wuerfel(String schluessel) {
@@ -46,6 +59,9 @@ public class Wuerfel extends AbstractCodec implements Codec {
         }
     }
 
+    /**
+     * Coding using wuerfel coding method
+     */
     @Override
     public String kodiere(String klartext) {
         if (schluessel.length() == 0) return klartext;
@@ -80,6 +96,9 @@ public class Wuerfel extends AbstractCodec implements Codec {
         return -1;
     }
 
+    /**
+     * Decoding using wuerfel coding method
+     */
     @Override
     public String dekodiere(String geheimtext) {
         if (schluessel.length() == 0) return geheimtext;
@@ -121,6 +140,10 @@ public class Wuerfel extends AbstractCodec implements Codec {
         return false;
     }
 
+    /**
+     *
+     * @throws IllegalArgumentException when the key contains symbols other then letters
+     */
     @Override
     public void setzeLosung(String schluessel) throws IllegalArgumentException {
         if (!Pattern.compile("[a-zA-Z]*").matcher(schluessel).matches())

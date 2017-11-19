@@ -6,10 +6,12 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
-import java.util.concurrent.Callable;
 import java.util.function.Consumer;
 
-
+/**
+ * CodecGUI class is simple javafx gui class, which is
+ * representing components for coding and decoding of texts
+ */
 public class CodecGUI {
 
     private static final String WUERFEL = "Wuerfel";

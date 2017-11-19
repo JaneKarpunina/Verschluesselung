@@ -2,6 +2,12 @@ package pis.hue1;
 
 import java.util.regex.Pattern;
 
+
+/**
+ * Class Caesar implements Codec interface and is used for
+ * coding with caesar method. Valid key words can not contain whitespace characters.
+ * https://en.wikipedia.org/wiki/Caesar_cipher - description of the coding method
+ */
 public class Caesar extends AbstractCodec implements Codec {
 
     public Caesar() {
@@ -11,6 +17,9 @@ public class Caesar extends AbstractCodec implements Codec {
         super(schluessel);
     }
 
+    /**
+     * Coding using caesar coding method
+     */
     @Override
     public String kodiere(String klartext) {
         if (schluessel.length() == 0) return klartext;
@@ -32,6 +41,9 @@ public class Caesar extends AbstractCodec implements Codec {
         result.append(j);
     }
 
+    /**
+     * Decoding using caesar coding method
+     */
     @Override
     public String dekodiere(String geheimtext) {
         if (schluessel.length() == 0) return geheimtext;
@@ -53,6 +65,9 @@ public class Caesar extends AbstractCodec implements Codec {
         result.append(j);
     }
 
+    /**
+     * @throws IllegalArgumentException when the key contains any whitespace character
+     */
     @Override
     public void setzeLosung(String schluessel) throws IllegalArgumentException {
         if (!Pattern.compile("[^\\s]*").matcher(schluessel).matches())
