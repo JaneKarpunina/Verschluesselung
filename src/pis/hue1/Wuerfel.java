@@ -146,7 +146,7 @@ public class Wuerfel extends AbstractCodec implements Codec {
      */
     @Override
     public void setzeLosung(String schluessel) throws IllegalArgumentException {
-        if (!Pattern.compile("[a-zA-Z]*").matcher(schluessel).matches())
+        if (schluessel == null || !Pattern.compile("[a-zA-Z]*").matcher(schluessel).matches())
             throw new IllegalArgumentException("Schluessel kann nur Buchstaben enthalten");
         this.schluessel = schluessel;
         array = new int[schluessel.length()];

@@ -70,7 +70,7 @@ public class Caesar extends AbstractCodec implements Codec {
      */
     @Override
     public void setzeLosung(String schluessel) throws IllegalArgumentException {
-        if (!Pattern.compile("[^\\s]*").matcher(schluessel).matches())
+        if (schluessel == null || !Pattern.compile("[^\\s]*").matcher(schluessel).matches())
             throw new IllegalArgumentException("Schluessel kann nicht speziele Character enthalten");
         this.schluessel = schluessel;
     }
